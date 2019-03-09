@@ -10,11 +10,11 @@ print(dir(random))
 print(dir(sys))
 
 # Randomize list and break down into letters
-words = ['bread', 'clock', 'mouse', 'banana', 'suitcase', 'cheese', 'mayonnaise']
+words = ['bread', 'clock', 'mouse', 'banana', 'suitcase', 'kitten', 'jupiter', 'bucket', 'cake', 'goose']
+
+random.choice(words)
 
 answer = list(random.choice(words))
-
-print(answer)
 
 # Replace letters with dashes '-'
 display = []
@@ -29,7 +29,16 @@ print(' '.join(display))
 # Asks user or letters until all are guessed correctly
 num = 0
 
-while num > len(answer):
+while num < len(answer):
     user_guess = input('Guess a letter: ')
-    user_guess = user_guess.lower
+    # Modified after "User input" branch
+    user_guess = user_guess.lower()
     print(num)
+
+    # Replaces dashes with user chosen letters
+    for i in range(len(answer)):
+        if answer[i] == user_guess:
+            display[i] = user_guess
+            num = num + 1
+
+    print(' '.join(display))
