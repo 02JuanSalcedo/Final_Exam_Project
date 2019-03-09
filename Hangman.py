@@ -15,3 +15,12 @@ words = ['bread', 'clock', 'mouse', 'banana', 'suitcase', 'cheese', 'mayonnaise'
 answer = list(random.choice(words))
 
 print(answer)
+
+# Replace letters with dashes '-'
+display = []
+display.extend(answer)
+
+for i in range(len(display)):
+    display[i] = '-'
+
+print(display)
