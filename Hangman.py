@@ -23,4 +23,13 @@ display.extend(answer)
 for i in range(len(display)):
     display[i] = '-'
 
-print(display)
+# Modified after "Repl_w/_dash" branch
+print(' '.join(display))
+
+# Asks user or letters until all are guessed correctly
+num = 0
+
+while num > len(answer):
+    user_guess = input('Guess a letter: ')
+    user_guess = user_guess.lower
+    print(num)
