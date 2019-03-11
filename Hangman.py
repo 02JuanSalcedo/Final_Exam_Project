@@ -18,6 +18,7 @@ while True:
         display[i] = '-'
     # Modified after "Repl_w/_dash" branch
     print(' '.join(display))
+    
     # Asks user or letters until all are guessed correctly
     num = 0
     while num < len(answer):
@@ -25,6 +26,7 @@ while True:
         # Modified after "User input" branch
         user_guess = user_guess.lower()
         print(num)
+        
         # Replaces dashes with user chosen letters
         for i in range(len(answer)):
             if answer[i] == user_guess:
