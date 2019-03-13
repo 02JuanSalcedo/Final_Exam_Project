@@ -13,7 +13,6 @@ while True:
     # Replace letters with dashes '-'
     display = []
     display.extend(answer)
-    print(display)
     for i in range(len(display)):
         display[i] = '-'
     # Modified after "Repl_w/_dash" branch
@@ -21,21 +20,39 @@ while True:
     
     # Asks user or letters until all are guessed correctly
     num = 0
+    guesses_left = 10
     while num < len(answer):
-        user_guess = input('Guess a letter: ')
-        # Modified after "User input" branch
-        user_guess = user_guess.lower()
-        print(num)
-        
-        # Replaces dashes with user chosen letters
-        for i in range(len(answer)):
-            if answer[i] == user_guess:
-                display[i] = user_guess
-                num = num + 1
-        print(' '.join(display))
+        if guesses_left != 0:
+
+            print(str(guesses_left), " guesses left")
+            user_guess = input('Guess a letter: ')
+            # Modified after "User input" branch
+            user_guess = user_guess.lower()
+
+            # Replaces dashes with user chosen letters
+            misses = 0
+            for i in range(len(answer)):
+                if answer[i] == user_guess:
+                    display[i] = user_guess
+                    num = num + 1
+                else:
+                    misses = misses + 1
+            print('\n', ' '.join(display))
+            print("correct:", num)
+            if misses == len(answer):
+                guesses_left = guesses_left - 1
+            else:
+                continue
+
+        else:
+            print("You lost!")
+            break
+    else:
+        print('you won')
 
         # Asks user if they would like to play again
     print('Do you want to play again? yes/no')
     ans = input()
     if ans != 'yes':
         break
+
